@@ -1,7 +1,7 @@
 /*!
-Theme Name: Ecommerce Base Theme
-Description: Private base theme for client projects
-Text Domain: ecommerce
+Theme Name: Temptation Fashion Theme
+Description: Temptation Fashion Theme is a modern and responsive WordPress theme designed for e-commerce websites. It features a clean and minimalist design, making it perfect for showcasing products in an elegant way. The theme is built with the latest web technologies, ensuring optimal performance and compatibility across all devices and browsers.
+Text Domain: temptation-fashion
 Version: 1.0.0
 Author: Nicols Rojas
 Author URI: https://nicolsrojas.dev
@@ -260,6 +260,7 @@ svg { display: block;}
 	z-index: 100000;
 }
 
+/* Global */
 @font-face {
     font-family: 'Lato';
     src: url('assets/fonts/subset-Lato-Regular.woff2') format('woff2'),
@@ -303,6 +304,9 @@ body {
     line-height: 1.5;
     color: #000;
 }
+button{
+  padding: 0;
+}
 
 /* helpers */
 .flex {
@@ -330,7 +334,7 @@ body {
     min-height: 100svh;
     overflow: hidden;
 }
-.site-main {
+.site-main, .page-container{
     flex: 1;
 }
 @media (max-width: 48rem) {

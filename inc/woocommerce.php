@@ -1,6 +1,4 @@
 <?php
-/* WooCommerce Compatibility File */
-
 function ecommerce_woocommerce_setup() {
 	add_theme_support(
 		'woocommerce',
@@ -42,8 +40,6 @@ function ecommerce_woocommerce_related_products_args( $args ) {
 }
 add_filter( 'woocommerce_output_related_products_args', 'ecommerce_woocommerce_related_products_args' );
 
-
-// Remove default sidebar action
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
@@ -66,18 +62,18 @@ if ( ! function_exists( 'ecommerce_woocommerce_wrapper_after' ) ) {
 }
 add_action( 'woocommerce_after_main_content', 'ecommerce_woocommerce_wrapper_after' );
 
-function custom_wrap_content_sidebar() {
-    echo '<div class="container flex">';
+function custom_wrap() {
+    echo '<div class="page-container container flex">';
 }
+add_action('woocommerce_before_main_content', 'custom_wrap', 5);
 
-function custom_close_content_sidebar() {
-	woocommerce_get_sidebar();
+function custom_close() {
+	if ( is_shop() || is_product_category() || is_product_tag() || is_product_taxonomy()){
+		woocommerce_get_sidebar();
+	}
     echo '</div>';
 }
-
-// Hook the wrapper functions
-add_action('woocommerce_before_main_content', 'custom_wrap_content_sidebar', 5);
-add_action('woocommerce_after_main_content', 'custom_close_content_sidebar', 25);
+add_action('woocommerce_after_main_content', 'custom_close', 25);
 
 if ( ! function_exists( 'ecommerce_woocommerce_cart_link_fragment' ) ) {
 

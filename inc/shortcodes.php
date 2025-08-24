@@ -21,12 +21,12 @@ function gsap_carousel_shortcode($atts) {
                 <?php endfor; ?>
             </div>
         </div>
-        <div class="navigation button-prev">
+        <button class="navigation button-prev">
             <?php echo load_inline_svg('arrow-left') ?>
-        </div>
-        <div class="navigation button-next">
+        </button>
+        <button class="navigation button-next">
             <?php echo load_inline_svg('arrow-right') ?>
-        </div>
+        </button>
     </div>
     <?php
     return ob_get_clean();
