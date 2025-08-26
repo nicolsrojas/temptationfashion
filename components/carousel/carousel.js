@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
         slidesPerView: 1,
         spaceBetween: 20,
         breakpoints: {
-              480: {
+              801: {
                   slidesPerView: 2,
                   spaceBetween: 20
               },
-              768: {
+              1201: {
                   slidesPerView: 3,
                   spaceBetween: 30
               },

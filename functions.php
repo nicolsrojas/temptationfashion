@@ -97,7 +97,16 @@ require get_template_directory() . '/inc/classes/class-nav-walker.php';
 require get_template_directory() . '/inc/cleanups.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
-require get_template_directory() . '/inc/shortcodes.php';
+
+/* Components  */
+require get_template_directory() . '/components/carousel/carousel.php';
+function load_conditional_components() {
+	enqueue_carousel_assets();
+    // if (is_page_template('templates-homepage.php')) {
+    //     enqueue_carousel_assets();
+    // }
+}
+add_action('wp_enqueue_scripts', 'load_conditional_components');
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
