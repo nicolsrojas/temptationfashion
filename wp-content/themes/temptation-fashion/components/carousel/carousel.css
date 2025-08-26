@@ -1,0 +1,45 @@
+.navigation{
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+}
+.swiper-container{
+    padding: 50px 0 20px;
+}
+.swiper-wrapper{
+    height: auto;
+}
+.button-prev{
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+.button-next{
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+.swiper-container{
+  position: relative;
+}
+.swiper-slide{
+    aspect-ratio: 216 / 137;
+    position: relative;
+}
+.swiper-slide .shape{
+    position: absolute;
+    inset: 0;
+    width: 97%;
+    height: 97%;
+}
+.slide-content{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
