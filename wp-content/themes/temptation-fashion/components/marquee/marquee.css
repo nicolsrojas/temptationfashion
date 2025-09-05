@@ -1,0 +1,10 @@
+.marquee{
+    overflow: hidden;
+}
+.marquee-wrapper{
+    width: max-content;
+    display: flex;
+}
+.marquee-content{
+    padding: 0 16px;
+}

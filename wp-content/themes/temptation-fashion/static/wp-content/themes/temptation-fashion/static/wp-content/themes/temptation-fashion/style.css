@@ -199,21 +199,17 @@ template {
 
 /* Base styles */
 :root {
-  --color-primary: #1B1B1B;
-  --color-primary-variant: #0F161E;
-  --color-on-primary: #FAFAFA;
-  
-  --color-secondary: #FAFAFA;
-  --color-secondary-variant: #FAFAFA;
-  --color-on-secondary: #1B1B1B;
-
-  --color-background: #FAFAFA;
+  --color-primary: #6200ee;
+  --color-primary-variant: #3700b3;
+  --color-secondary: #03dac6;
+  --color-secondary-variant: #018786;
+  --color-background: #fff;
+  --color-surface: #fff;
+  --color-error: #b00020;
+  --color-on-primary: #fff;
+  --color-on-secondary: #000;
   --color-on-background: #000;
-
-  --color-surface: radial-gradient(#CFCFCF, #E2E2E2);
   --color-on-surface: #000;
-
-  --color-error: #E65454;
   --color-on-error: #fff;
 
   --state-hover-opacity: 8%;
@@ -266,55 +262,43 @@ svg { display: block;}
 
 /* Global */
 @font-face {
-    font-family: 'Adjusted Arial Fallback';
-    src: local(Arial);
-    size-adjust: 107%;
-    ascent-override: 96%;
-    descent-override: 37%;
-    line-gap-override: normal;
-}
-@font-face {
-    font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Bold.woff2') format('woff2'),
-        url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Roc Grotesk Wide';
-    src: url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Wide.woff2') format('woff2'),
-        url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Wide.woff') format('woff');
+    font-family: 'Lato';
+    src: url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-Regular.woff2') format('woff2'),
+        url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
-    font-family: 'Roc Grotesk Wide';
-    src: url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-WideMedium.woff2') format('woff2'),
-        url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-WideMedium.woff') format('woff');
-    font-weight: 500;
+    font-family: 'Lato';
+    src: url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-Bold.woff2') format('woff2'),
+        url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-Bold.woff') format('woff');
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
-    font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Medium.woff2') format('woff2'),
-        url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+    font-family: 'Lato';
+    src: url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-BoldItalic.woff2') format('woff2'),
+        url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
     font-display: swap;
 }
+
 @font-face {
-    font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Light.woff2') format('woff2'),
-        url('/wp-content/themes/temptation-fashion/assets/fonts/RocGrotesk-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
+    font-family: 'Lato';
+    src: url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-Italic.woff2') format('woff2'),
+        url('/wp-content/themes/temptation-fashion/static/wp-content/themes/temptation-fashion/assets/fonts/subset-Lato-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
     font-display: swap;
 }
+
 body {
-    font-family: 'Roc Grotesk', "Adjusted Arial Fallback";
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-style: normal;
     line-height: 1.5;
@@ -328,15 +312,6 @@ button{
 .flex {
     display: flex;
 }
-.flex-column{
-    display: flex;
-    flex-direction: column;
-}
-.flex-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .justify-between{
     justify-content: space-between;
 }
@@ -346,13 +321,10 @@ button{
 .text-center{
   text-align: center;
 }
-.justify-center{
-  justify-content: center;
-}
 /* layout */
 .container {
     width: 100%;
-    max-width: 1304px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 .site {
@@ -389,14 +361,25 @@ button{
   position: absolute;
   top: 100%;
   left: 0;
+
   opacity: 0;
   visibility: hidden;
 }
-/*-- non-critical --*/
-/* GSAP */
-#smooth-content {
- will-change: transform;
+
+/* design */
+
+.main-navigation__link {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
+
+/*-- non-critical --*/
+
 /* hidden */
 .main-navigation__submenu--deep{
   left: 100%;
@@ -409,4 +392,22 @@ button{
 .main-navigation__item:hover > .main-navigation__submenu {
   opacity: 1;
   visibility: visible;
+}
+
+/* design */
+.main-navigation__link:hover {
+  background-color: color-mix(in srgb, var(--color-primary), black var(--state-hover-opacity));
+}
+.main-navigation__submenu {
+  min-width: 200px;
+  border: 1px solid #ddd;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+span.main-navigation__link{
+  cursor: default;
+}
+
+/* GSAP */
+#smooth-content {
+ will-change: transform;
 }
