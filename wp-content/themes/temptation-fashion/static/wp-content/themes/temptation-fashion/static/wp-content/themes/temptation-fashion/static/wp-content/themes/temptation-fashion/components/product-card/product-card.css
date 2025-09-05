@@ -1,0 +1,14 @@
+.product-card{
+    aspect-ratio: 222 / 396;
+}
+.product-link{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.product-image{
+    flex: 1;
+}
+.product-image img{
+    flex:1;
+}
