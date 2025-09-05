@@ -40,3 +40,25 @@ add_filter('use_widgets_block_editor', '__return_false');
 add_action('customize_register', function($wp_customize) {
     $wp_customize->remove_panel('widgets');
 });
+
+function remove_wp_admin_bar_margin() {
+    remove_action('wp_head', '_admin_bar_bump_cb');
+}
+add_action('get_header', 'remove_wp_admin_bar_margin');
+
+/* plugin */
+
+add_filter( 'aws_searchbox_markup', function( $markup, $params ) {
+    $old_svg = '<svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px">';
+    $old_svg .= '<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>';
+    $old_svg .= '</svg>';
+
+    $new_svg = load_inline_svg('search');
+
+    $markup = str_replace(
+        $old_svg, 
+        $new_svg, 
+        $markup
+    );
+    return $markup;
+}, 10, 2 );

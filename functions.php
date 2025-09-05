@@ -62,8 +62,6 @@ function ecommerce_scripts() {
 	wp_enqueue_script('gsap-scrollsmoother',  get_template_directory_uri() . '/assets/js/ScrollSmoother.min.js', array(), ECOMMERCE_VERSION, true);
 
 	wp_enqueue_script('ecommerce-main',  get_template_directory_uri() . '/assets/js/main.js', array(), ECOMMERCE_VERSION, true);
-
-	wp_enqueue_script('ecommerce-carousel',  get_template_directory_uri() . '/assets/js/carousel.js', array('swiper'), ECOMMERCE_VERSION, true);
 }
 add_action( 'wp_enqueue_scripts', 'ecommerce_scripts' );
 
@@ -77,6 +75,10 @@ function ecommerce_async_css_loader( $html, $handle, $href, $media ) {
 add_filter( 'style_loader_tag', 'ecommerce_async_css_loader', 10, 4 );
 
 add_action('wp_head', function() {
+    $global_critical = get_template_directory() . '/assets/css/critical.css';
+    if ( file_exists( $global_critical ) ) {
+        echo '<style>' . file_get_contents( $global_critical ) . '</style>';
+    }
     if ( is_front_page() ) {
         $critical = get_template_directory() . '/assets/css/critical-home.css';
     } elseif ( is_single() && 'product' === get_post_type() ) {
@@ -84,8 +86,9 @@ add_action('wp_head', function() {
     } else {
         $critical = get_template_directory() . '/assets/css/critical-page.css';
     }
+
     if ( isset($critical) && file_exists($critical) ) {
-        echo '<style>' .  esc_html(file_get_contents($critical)) . '</style>';
+        echo '<style>' . file_get_contents($critical) . '</style>';
     }
 });
 
@@ -99,12 +102,16 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /* Components  */
+require get_template_directory() . '/components/button/button.php';
+require get_template_directory() . '/components/product-card/product-card.php';
 require get_template_directory() . '/components/carousel/carousel.php';
+require get_template_directory() . '/components/product-gallery/product-gallery.php';
+require get_template_directory() . '/components/marquee/marquee.php';
+
 function load_conditional_components() {
+	enqueue_product_card_assets();
 	enqueue_carousel_assets();
-    // if (is_page_template('templates-homepage.php')) {
-    //     enqueue_carousel_assets();
-    // }
+	enqueue_marquee_assets();
 }
 add_action('wp_enqueue_scripts', 'load_conditional_components');
 

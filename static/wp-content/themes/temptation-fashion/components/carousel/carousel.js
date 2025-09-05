@@ -5,23 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof Swiper !== 'undefined' && carousels.length > 0) {
     carousels.forEach((carousel) => {
       const swiper = new Swiper(carousel.querySelector('[data-carousel]'), {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        breakpoints: {
-              801: {
-                  slidesPerView: 2,
-                  spaceBetween: 20
-              },
-              1201: {
-                  slidesPerView: 3,
-                  spaceBetween: 30
-              },
+          slidesPerView: "auto",
+          spaceBetween: 20,
+          loop: true,
+          watchOverflow: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           },
-        loop: true,
-        navigation: {
-          nextEl: carousel.querySelector('.button-next'),
-          prevEl: carousel.querySelector('.button-prev'),
-        },
       });
     });
   }

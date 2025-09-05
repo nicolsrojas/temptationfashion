@@ -1,0 +1,12 @@
+.hero .content{
+    flex-direction: row-reverse;
+}
+.hero .text-container{
+    flex: 1;
+}
+.hero .image-container{
+    flex: 2;
+}
+.hero .image-container img{
+    max-width: 491px;
+}

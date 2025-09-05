@@ -1,1 +1,19 @@
- 
+.trending .product-card{
+    width: 222px;
+} 
+.categories-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px 45px;
+}
+.category-image img{
+    width: 100%;
+}
+.product-gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px 45px;
+}
+/* .product-image img{
+    width: 100%;
+} */
