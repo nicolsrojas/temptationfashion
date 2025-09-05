@@ -1,0 +1,8 @@
+.marquee{
+    overflow: hidden;
+}
+.marquee-wrapper{
+    width: max-content;
+    display: flex;
+    gap: 20px;
+}
